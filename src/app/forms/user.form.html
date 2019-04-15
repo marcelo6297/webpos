@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<form id="form"[formGroup]="form">
+    <div class="form-container">
+        <mat-form-field>
+            <input matInput placeholder="Email" formControlName="email">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Ingrese su password" [type]="hide ? 'password' : 'password'" formControlName="password">
+            <button matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</button>
+        </mat-form-field>
+        
+        
+    </div>
+</form>

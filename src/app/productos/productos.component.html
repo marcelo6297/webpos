@@ -1,0 +1,87 @@
+
+<mat-toolbar>
+    <a mat-button (click)="nuevo()"> Nuevo </a>
+    <a mat-button (click)="toogleSideNav()"> Filtrar </a>
+    <a mat-button (click)="borrar()" [disabled]="borrarDisabled">Borrar ({{ ids.length }})</a>
+    <a mat-button routerLink="/productos/varios"> Importar</a>
+</mat-toolbar>
+
+<mat-sidenav-container >
+    <mat-sidenav opened="{{showSideNav}}" mode="side" position="end">
+        <div>
+            <productos-filter></productos-filter>
+        </div>
+    </mat-sidenav>
+    <div style="min-height: 400px">
+        <mat-card>
+            <mat-table #productos [dataSource]="dataSource" matSort>
+                <ng-container matColumnDef="id">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> id </mat-header-cell>
+                    <mat-cell *matCellDef="let item"> 
+                        <mat-checkbox #myCheckbox 
+                            (change)="aBorrar($event, item.id)"
+                            [checked]="exists(item.id)"
+                            > {{item.id}} </mat-checkbox>
+                    </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="codigo">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Codigo </mat-header-cell>
+                    <mat-cell *matCellDef="let item"> {{item.codigo}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="nombre">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>
+                    <mat-cell *matCellDef="let item"> {{item.nombre}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="descripcion">
+                    <mat-header-cell *matHeaderCellDef  mat-sort-header> Descripcion </mat-header-cell>
+                    <mat-cell *matCellDef="let item"> {{item.descripcion}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="precioVenta" >
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Precio </mat-header-cell>
+                    <mat-cell *matCellDef="let item"> {{item.precioVenta | currency}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="stockInicial" >
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Stock Inicial</mat-header-cell>
+                    <mat-cell *matCellDef="let item"> {{item.stockInicial}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="totalIngreso" >
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Total Ingreso</mat-header-cell>
+                    <mat-cell *matCellDef="let item"> {{item.totalIngreso}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="totalSalida" >
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Total Salida</mat-header-cell>
+                    <mat-cell *matCellDef="let item"> {{item.totalSalida}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="totalStock" >
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Total Stock</mat-header-cell>
+                    <mat-cell *matCellDef="let item"> {{item.totalStock}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="estadoStock" >
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Estado Stock</mat-header-cell>
+                    <mat-cell *matCellDef="let item"> {{item.estadoStock}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="iva">
+                    <mat-header-cell *matHeaderCellDef>% I.V.A</mat-header-cell>
+                    <mat-cell *matCellDef="let item"> {{ item.porcenIva }}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="acciones">
+                    <mat-header-cell *matHeaderCellDef> acciones </mat-header-cell>
+                    <mat-cell *matCellDef="let item">
+                        <a mat-button (click)="edit(item.id)">Editar </a>
+                    </mat-cell>
+                </ng-container>
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+
+            </mat-table>
+            <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]"></mat-paginator>
+        </mat-card>
+    </div> 
+</mat-sidenav-container>
+
+
+
+
+

@@ -1,0 +1,19 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: Roboto, sans-serif;
+}
+.app{
+    height: 95vh;    
+}
+
+.mat-table {
+    /*overflow: auto;*/
+    max-height: 500px;
+  }
+  
+div.form-container{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}

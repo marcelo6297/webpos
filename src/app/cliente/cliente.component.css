@@ -1,0 +1,12 @@
+.selected {
+  background-color: #CFD8DC !important;
+  color: white;
+}
+.mat-table {
+  overflow: auto;
+  max-height: 500px;
+}
+.mat-card {
+    margin: 8px;
+}
+[hidden] { display: none !important;}

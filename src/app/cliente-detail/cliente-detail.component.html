@@ -1,0 +1,25 @@
+
+<mat-card>
+
+    <h2 mat-card-title>
+        <p *ngIf="isEditing; else notShow ">  Cliente {{cliente.ruc}} </p>
+    </h2>
+
+    <ng-template #notShow>
+        <p>
+            Nuevo Cliente
+        </p>
+    </ng-template>
+    <mat-card-content>
+            
+        <div class="cliente-container">
+            <cliente-form [cliente]="cliente" [tipos]="tipos" [isEditing]="isEditing"></cliente-form>
+        </div>
+        
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button (click)="back()">Volver</button>
+        <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
+        <button mat-button (click)="saveOrUpdate()" [disabled]="clienteForm.form.invalid">Si</button>
+    </mat-card-actions>
+</mat-card>

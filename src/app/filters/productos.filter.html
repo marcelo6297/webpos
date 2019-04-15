@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<mat-card>
+<form [formGroup]="form" novalidate>
+    <mat-card-header color="primary">
+       
+    </mat-card-header>
+    
+    <mat-card-content>
+        <div>
+        <mat-form-field>
+          <input matInput placeholder="Codigo" autocomplete="off" formControlName="codigo">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Nombre" autocomplete="off" formControlName="nombre">
+        </mat-form-field>
+        </div>
+          
+        <div>   
+        <mat-form-field>
+        <mat-select placeholder="Estado Stock" formControlName="estadoStock">
+            <mat-option *ngFor="let estado of estados" [value]="estado">
+              {{ estado }}
+            </mat-option>
+        </mat-select>
+        </mat-form-field>
+        
+        <mat-form-field>
+        <mat-select placeholder="Esta Activo" formControlName="estaActivo">
+            <mat-option *ngFor="let activo of estaActivo" [value]="activo">
+              {{ activo }}
+            </mat-option>
+        </mat-select>
+        </mat-form-field>
+       </div>
+       <div formGroupName="precioCompra" >     
+        <mat-form-field>
+            <input matInput placeholder="Precio Compra Min" autocomplete="off" type="number" formControlName="min">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Precio Compra Max" autocomplete="off" type="number" formControlName="max">
+        </mat-form-field>
+       </div>
+       
+        <div formGroupName="precioVenta" >   
+        <mat-form-field>
+          <input matInput placeholder="Precio Venta Min" autocomplete="off" type="number" formControlName="min">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Precio Venta Max" autocomplete="off" type="number" formControlName="max">
+        </mat-form-field>
+        </div>
+            
+        <div formGroupName="totalStock" >   
+        <mat-form-field>
+          <input matInput placeholder="Stock Min" autocomplete="off" type="number" formControlName="min">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Stock Max" autocomplete="off" type="number" formControlName="max">
+        </mat-form-field>
+        </div>        
+        
+    
+        
+    </mat-card-content>
+</form>
+    
+</mat-card>

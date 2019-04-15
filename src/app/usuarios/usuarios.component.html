@@ -1,0 +1,36 @@
+<mat-card fxFlex>
+    <mat-table #usuarios [dataSource]="dataSource" matSort>
+        <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> id </mat-header-cell>
+            <mat-cell *matCellDef="let item">  
+                <mat-checkbox #myCheckbox (change)="aBorrar($event, item.id)" > {{item.id}} </mat-checkbox>
+            </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="nombre">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>
+            <mat-cell *matCellDef="let item" > {{item.nombre}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="apellido">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Apellido </mat-header-cell>
+            <mat-cell *matCellDef="let item"> {{item.apellido}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="direccion">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Direccion </mat-header-cell>
+            <mat-cell *matCellDef="let item"> {{item.direccion}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="email">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
+            <mat-cell *matCellDef="let item"> {{item.email}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="enabled">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Activo </mat-header-cell>
+            <mat-cell *matCellDef="let item"> 
+                <mat-checkbox [checked]=item.enabled ></mat-checkbox>
+            </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">
+    </mat-paginator>
+</mat-card>

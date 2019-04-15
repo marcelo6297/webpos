@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<form id="form"[formGroup]="form">
+    <div>
+        <mat-form-field>
+            <input matInput placeholder="Nombre" formControlName="nombre">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Apellido" formControlName="apellido">
+        </mat-form-field>
+    </div>
+    <div>
+
+        <mat-form-field>
+            <input matInput placeholder="CI o RUC" autocomplete="off" formControlName="ruc">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Telefono" autocomplete="off" formControlName="telefono">
+        </mat-form-field>
+
+    </div>
+    <div>
+
+        <mat-form-field>
+            <input matInput placeholder="Direccion 1" formControlName="direccion1">
+        </mat-form-field>
+
+
+        <!--          <mat-form-field>
+        <input matInput placeholder="Direccion 2" formControlName="direccion2">
+        </mat-form-field>-->
+
+        <mat-form-field>
+            <mat-select placeholder="Esta Activo" formControlName="activo">
+                <mat-option *ngFor="let activo of estaActivo" [value]="activo">
+                    {{ activo }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+
+<!--        <mat-form-field>
+<mat-select placeholder="Tipo" formControlName="tipo">
+<mat-option *ngFor="let tipo of tipos" [value]="tipo">
+{{ tipo }}
+</mat-option>
+</mat-select>
+</mat-form-field>-->
+
+
+<div formGroupName="fechaNacimiento" >  
+    <mat-form-field>
+        <input matInput [matDatepicker]="min" autocomplete="off" placeholder="Desde" formControlName="min">
+               <mat-datepicker-toggle matSuffix [for]="min"></mat-datepicker-toggle>
+        <mat-datepicker #min></mat-datepicker>
+    </mat-form-field> 
+    <mat-form-field>
+        <input matInput [matDatepicker]="max" autocomplete="off" placeholder="Hasta" formControlName="max">
+               <mat-datepicker-toggle matSuffix [for]="max"></mat-datepicker-toggle>
+        <mat-datepicker #max></mat-datepicker>
+    </mat-form-field>
+</div>   
+</form>
