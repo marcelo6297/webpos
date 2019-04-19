@@ -3,7 +3,7 @@
         <ng-container matColumnDef="id">
             <mat-header-cell *matHeaderCellDef mat-sort-header> id </mat-header-cell>
             <mat-cell *matCellDef="let item">  
-                <mat-checkbox #myCheckbox (change)="aBorrar($event, item.id)" > {{item.id}} </mat-checkbox>
+                <mat-checkbox #myCheckbox (change)="marcar($event, item.id)" > {{item.id}} </mat-checkbox>
             </mat-cell>
         </ng-container>
         <ng-container matColumnDef="nombre">

@@ -35,18 +35,16 @@ export class AuthService {
     ) {
     }
  
-  private attemptAuth(credentials: User):Observable<JwtResponse>{
+   attemptAuth(credentials: User):Observable<JwtResponse>{
       
       
       return this.http.post<JwtResponse>(this.urls.login, credentials);
   }
   
-  login(credentials: User) {
+  login(credentials: User, errorCallback) {
      
       this.attemptAuth(credentials).subscribe(
           res => {
-              console.log("mostrar el nombre")
-              
               this.tokenStore.setUser(res.username)
               this.tokenStore.setToken(res.token)
               this.tokenStore.setAuthorities(JSON.stringify(res.authorities))
@@ -55,7 +53,8 @@ export class AuthService {
               this.router.navigate([this.returnUrl]);
 //              Emitir el evento de cambio de credenciales
               
-          });
+              
+          }, err=>errorCallback(err));
   }
   /* elimina el token del servidor y del localSessionStore
    */

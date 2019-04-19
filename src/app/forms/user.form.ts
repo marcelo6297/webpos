@@ -13,7 +13,7 @@ import {User} from '../modelo/user'
 //    styleUrls: ['./../cliente-detail/cliente-detail.component.css'],
 })
 
-export class UserRegisterForm extends BaseForm<User> {
+export class UserRegisterForm extends BaseForm<User> {    
     createForm() {
         this.form = new FormGroup({
             id: new FormControl(),
@@ -21,5 +21,10 @@ export class UserRegisterForm extends BaseForm<User> {
             password: new FormControl(null, Validators.required),
         });
     }
+    setErrors() {
+        this.form.get("email").setErrors({"required": true});
+        this.form.get("password").setErrors({"required": true});
+    }
+    
 }
 

@@ -5,17 +5,16 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 
-<form id="form"[formGroup]="form">
+<form (ngSubmit)="submitCallback" id="form"[formGroup]="form">
     <div class="form-container">
         <mat-form-field>
             <input matInput placeholder="Email" formControlName="email">
         </mat-form-field>
 
         <mat-form-field>
-            <input matInput placeholder="Ingrese su password" [type]="hide ? 'password' : 'password'" formControlName="password">
-            <button matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</button>
+            <input matInput placeholder="Ingrese su password" [type]="hide ? 'text' : 'password'" formControlName="password">
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
         </mat-form-field>
-        
         
     </div>
 </form>

@@ -1,18 +1,22 @@
 <div class="main-div">
+    
 <mat-card>
     <h2>
         Biendvenido, por favor ingrese sus datos para ingresar al sistema;
     </h2>
     
     <mat-card-content>
-        
-        <user-form></user-form>
+        <div *ngIf="showError">
+            Las credenciales ingresadas no son validas, verifiquelas. Ingrese las credenciales correctas y vuelva a intentar
+            
+        </div>
+        <user-form (submitCallback)="login()"></user-form>
         
     </mat-card-content>
     <mat-card-actions>
-     <button mat-raised-button color="primary"  (click)="login()">Login</button>
+     <button mat-raised-button color="primary"  [disabled]="form.form.invalid" (click)="login()">Login</button>
 
-     <button mat-raised-button (click)="logout()">Logout</button>
+     <button mat-raised-button (click)="limpiar()">Limpiar</button>
     </mat-card-actions>
 </mat-card>
 </div>

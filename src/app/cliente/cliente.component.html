@@ -1,10 +1,10 @@
 <!--Lista de clientes-->
 <mat-toolbar>
-    <a mat-button routerLink="/clientes/new"> Nuevo </a>
-    <a mat-button (click)="toogleSideNav()"> Filtrar </a>
-    <a mat-button (click)="borrar()" [disabled]="borrarDisabled">Borrar ({{ ids.length }})</a>
-    <a mat-button routerLink="/productos/varios"> Importar</a>
-    <a mat-button (click)="export()"> Exportar</a>
+    <a mat-button routerLink="/clientes/new"> Nuevo <mat-icon>add_circle_outline</mat-icon></a>
+    <a mat-button (click)="toogleSideNav()"> Filtrar <mat-icon>filter_list</mat-icon></a>
+    <a mat-button (click)="borrar()" [disabled]="borrarDisabled">Borrar ({{ ids.length }}) <mat-icon>delete</mat-icon></a>
+    <a mat-button routerLink="/productos/varios"> Importar<mat-icon>cloud_upload</mat-icon></a>
+    <a mat-button (click)="export()"> Exportar <mat-icon>cloud_download</mat-icon></a>
 </mat-toolbar>
 
 <!--<mat-sidenav-container >

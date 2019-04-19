@@ -4,7 +4,8 @@ import {
     MatPaginator,
     MatSort,
     MatSnackBar,
-    MatDialog
+    MatDialog,
+    MatCheckboxChange
 } from '@angular/material';
 
 import {Globals} from '../globals'
@@ -35,6 +36,22 @@ export class UsuariosComponent extends BaseListComponent<User> implements OnInit
 
   ngOnInit() {
       this.getAll();
+  }
+  
+  borrar(){}
+  
+  marcar(evt: MatCheckboxChange, id:number){
+      if (evt.checked) {
+      this.ids.push(id);
+    }
+    else {
+       // Item to remove
+      this.ids = this.ids.filter(obj => obj !== id);
+    }
+    
+    this.borrarDisabled = !(this.ids.length > 0) ;
+    
+      
   }
 
 }

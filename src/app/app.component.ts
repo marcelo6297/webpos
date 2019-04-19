@@ -47,14 +47,14 @@ export class AppComponent implements OnDestroy,OnInit{
       return this._srvc.isLoggedIn();
   }
   menu: any = [
-    { titulo: 'Clientes', ruta: '/clientes' },
+    { titulo: 'Clientes', ruta: '/clientes', icon: 'person' },
 //    { titulo: 'Nuevo Cliente', ruta: '/clientes/new' },
-    { titulo: 'Productos', ruta: '/productos' },
+    { titulo: 'Productos', ruta: '/productos', icon: 'shoping' },
 //    { titulo: 'Productos', ruta: '/productos/new' },
-    { titulo: 'Ventas', ruta: '/ventas' },
+    { titulo: 'Ventas', ruta: '/ventas', icon: 'shoping' },
     { titulo: 'Nueva Venta', ruta: '/ventas/new' },
-    { titulo: 'Compras', ruta: '/compras' },
-    { titulo: 'Usuarios', ruta: '/user' },
+    { titulo: 'Compras', ruta: '/compras',  icon: 'shoping' },
+    { titulo: 'Usuarios', ruta: '/user', icon: 'account_circle' },
 //    { titulo: 'Login', ruta: '/login' },
   ];
   toogleSideNav() {

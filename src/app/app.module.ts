@@ -27,6 +27,7 @@ import {
 } from '@angular/material';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
+import {MatIconModule} from '@angular/material/icon'
 
 import { AppComponent } from './app.component';
 import {ClienteComponent, ClienteFormDialog, ClienteForm } from './cliente/cliente.component';
@@ -127,7 +128,8 @@ import {TokenLocalStore} from './_auth/token-local-store';
     MatDialogModule,
     FlexLayoutModule,
     MatGridListModule,
-      MatRadioModule
+      MatRadioModule,
+      MatIconModule
   ],
   providers: [ComprasService, ProductosService, AuthService,AuthGuard,Globals,
     TokenLocalStore,

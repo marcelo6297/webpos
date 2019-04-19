@@ -13,15 +13,15 @@
         <span></span>
         <div layout="column" class="md-toolbar-tools-bottom">
           <span></span>
-          <div>Usuario: {{userName}}</div>
-          <div>Rol: {{roles}}</div>
+          <div><mat-icon>face</mat-icon>{{userName}}</div>
+          <div><mat-icon>group</mat-icon>{{roles}}</div>
           
         </div>
       </mat-toolbar>
       <mat-nav-list>
         <mat-list-item *ngFor="let item of menu" routerLink="{{item.ruta}}">
           <a>
-            <div> {{item.titulo}}</div>
+              <div><mat-icon >{{item.icon}}</mat-icon> {{item.titulo}} </div>
           </a>
         </mat-list-item>
         <mat-list-item (click)=logout()>
@@ -29,7 +29,7 @@
             <div> Logout </div>
           </a>
         </mat-list-item>  
-        <div>Acceso desde: {{direccion}}</div>
+        <div>Acceso desde: {{direccion}}<mat-icon>computer</mat-icon></div>
       </mat-nav-list>
     </mat-sidenav>
     <router-outlet></router-outlet>
